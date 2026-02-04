@@ -33,10 +33,16 @@
                     <p class="logo-subtitle">Democracy & Technology</p>
                 </div>
             </div>
-            <nav class="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#blogs" class="nav-link">Blogs</a>
-                <a href="#subscribe" class="nav-link">Subscribe</a>
-            </nav>
+         <nav class="nav-menu">
+  <a href="<?php echo esc_url(home_url('/')); ?>" class="nav-link">Home</a>
+  <a href="<?php echo esc_url(home_url('/about/')); ?>" class="nav-link">About</a>
+  <a href="<?php echo esc_url(home_url('/what-we-do/')); ?>" class="nav-link">What We Do</a>
+  <a href="<?php echo esc_url(home_url('/resources/')); ?>" class="nav-link">Resources</a>
+  <a href="<?php echo esc_url(home_url('/events/')); ?>" class="nav-link">Events</a>
+  <a href="<?php echo esc_url(home_url('/partners/')); ?>" class="nav-link">Partners</a>
+  <a href="<?php echo esc_url(home_url('/get-involved/')); ?>" class="nav-link">Get Involved</a>
+  <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="nav-link">Contact</a>
+</nav>
+
         </div>
     </header>
