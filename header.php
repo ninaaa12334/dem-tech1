@@ -34,7 +34,7 @@
                 </div>
             </div>
          <nav class="nav-menu">
-  <a href="<?php echo esc_url(home_url('/')); ?>" class="nav-link">Home</a>
+  <a href="<?php echo esc_url(home_url('/front-page/')); ?>" class="nav-link">Home</a>
   <a href="<?php echo esc_url(home_url('/about/')); ?>" class="nav-link">About</a>
   <a href="<?php echo esc_url(home_url('/what-we-do/')); ?>" class="nav-link">What We Do</a>
   <a href="<?php echo esc_url(home_url('/resources/')); ?>" class="nav-link">Resources</a>

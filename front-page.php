@@ -4,11 +4,12 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="hero-main-title">Democracy & Technology</h1>
-            <h2 class="hero-large-title">Democracy & Information Integrity</h2>
-            <p class="hero-subtitle">Democracy & AI</p>
+            <h2 class="hero-large-title">Protecting Democracy in the Digital Age </h2>
+            <p class="hero-subtitle">Strengthening democratic resilience, countering disinformation, and safeguarding information integrity across Kosovo and the Western Balkans.</p>
             <div class="hero-divider"></div>
             <a href="#blogs" class="cta-button">Read Blogs</a>
         </div>
+        
     </section>
 
     <!-- Featured Blogs Section -->
