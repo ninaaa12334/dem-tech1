@@ -311,3 +311,60 @@ add_action('pre_get_posts', function ($q) {
     $q->set('order', 'ASC');
   }
 });
+
+add_action('admin_post_nopriv_demtech_get_involved', 'demtech_handle_get_involved');
+add_action('admin_post_demtech_get_involved', 'demtech_handle_get_involved');
+
+function demtech_handle_get_involved() {
+  // Nonce check
+  if (!isset($_POST['demtech_nonce']) || !wp_verify_nonce($_POST['demtech_nonce'], 'demtech_get_involved')) {
+    wp_safe_redirect(home_url('/get-involved/?error=1'));
+    exit;
+  }
+
+  // Sanitize
+  $first = sanitize_text_field($_POST['firstName'] ?? '');
+  $last  = sanitize_text_field($_POST['lastName'] ?? '');
+  $email = sanitize_email($_POST['email'] ?? '');
+  $phone = sanitize_text_field($_POST['phone'] ?? '');
+  $type  = sanitize_text_field($_POST['type'] ?? '');
+  $org   = sanitize_text_field($_POST['organization'] ?? '');
+  $msg   = sanitize_textarea_field($_POST['message'] ?? '');
+
+  // Basic validation
+  if (empty($first) || empty($last) || empty($email) || empty($type) || empty($msg) || !is_email($email)) {
+    wp_safe_redirect(home_url('/get-involved/?error=1'));
+    exit;
+  }
+
+  // Email content
+  $to = get_option('admin_email');
+  $subject = 'DemTech Get Involved: ' . strtoupper($type);
+  $body =
+    "Name: $first $last\n" .
+    "Email: $email\n" .
+    "Phone: $phone\n" .
+    "Type: $type\n" .
+    "Organization: $org\n\n" .
+    "Message:\n$msg\n";
+
+  $headers = [];
+  $headers[] = 'Content-Type: text/plain; charset=UTF-8';
+  $headers[] = 'Reply-To: ' . $email;
+
+  $sent = wp_mail($to, $subject, $body, $headers);
+
+  wp_safe_redirect(home_url('/get-involved/?' . ($sent ? 'sent=1' : 'error=1')));
+  exit;
+}
+function demtech_events_styles() {
+  if (is_page_template('page-events.php')) {
+    wp_enqueue_style(
+      'demtech-events',
+      get_stylesheet_directory_uri() . '/assets/css/events.css',
+      array(),
+      filemtime(get_stylesheet_directory() . '/assets/css/events.css')
+    );
+  }
+}
+add_action('wp_enqueue_scripts', 'demtech_events_styles');
