@@ -7,7 +7,7 @@
             <h2 class="hero-large-title">Protecting Democracy in the Digital Age </h2>
             <p class="hero-subtitle">Strengthening democratic resilience, countering disinformation, and safeguarding information integrity across Kosovo and the Western Balkans.</p>
             <div class="hero-divider"></div>
-            <a href="#blogs" class="cta-button">Read Blogs</a>
+            <a href="#blogs" class="cta-button">nina</a>
         </div>
         
     </section>
